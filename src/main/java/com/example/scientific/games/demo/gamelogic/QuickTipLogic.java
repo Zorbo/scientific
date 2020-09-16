@@ -1,4 +1,4 @@
-package com.example.scientific.games.demo.logic;
+package com.example.scientific.games.demo.gamelogic;
 
 import com.example.scientific.games.demo.exceptions.QuickTipNumberException;
 import java.util.Map;

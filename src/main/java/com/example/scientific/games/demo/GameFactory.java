@@ -1,9 +1,9 @@
 package com.example.scientific.games.demo;
 
 
-import static com.example.scientific.games.demo.logic.QuickTipLogic.gameOne;
-import static com.example.scientific.games.demo.logic.QuickTipLogic.gameThree;
-import static com.example.scientific.games.demo.logic.QuickTipLogic.gameTwo;
+import static com.example.scientific.games.demo.gamelogic.QuickTipLogic.gameOne;
+import static com.example.scientific.games.demo.gamelogic.QuickTipLogic.gameThree;
+import static com.example.scientific.games.demo.gamelogic.QuickTipLogic.gameTwo;
 
 import com.example.scientific.games.demo.entity.InputDTO;
 import com.example.scientific.games.demo.entity.QuickTip;
@@ -52,24 +52,30 @@ public class GameFactory {
         switch (gameType) {
             case 1:
                 for (int i = 0; i < numberOfGames; i++) {
-                    QuickTip g1 = new QuickTip();
-                    g1.setNumbers(gameOne(inputDTO.getNumberRangeTo(), inputDTO.getRandomNumbers()));
+                    QuickTip g1 = QuickTip
+                        .builder()
+                        .numbers(gameOne(inputDTO.getNumberRangeTo(), inputDTO.getRandomNumbers()))
+                        .build();
                     games.add(g1);
                 }
                 return games;
             case 2:
                 for (int i = 0; i < numberOfGames; i++) {
-                    QuickTipWithPanels g2 = new QuickTipWithPanels();
-                    g2.setPanels(gameTwo(inputDTO.getPanels(), inputDTO.getRandomNumbers()));
+                    QuickTipWithPanels g2 = QuickTipWithPanels
+                        .builder()
+                        .panels(gameTwo(inputDTO.getPanels(), inputDTO.getRandomNumbers()))
+                        .build();
                     games.add(g2);
                 }
                 return games;
             case 3:
                 for (int i = 0; i < numberOfGames; i++) {
-                    QuickTipWithPanels g3 = new QuickTipWithPanels();
-                    g3.setPanels(gameThree(inputDTO.getNumberRangeTo(),
-                                           inputDTO.getRandomNumbers(),
-                                           inputDTO.getPanels()));
+                    QuickTipWithPanels g3 = QuickTipWithPanels
+                        .builder()
+                        .panels(gameThree(inputDTO.getNumberRangeTo(),
+                                          inputDTO.getRandomNumbers(),
+                                          inputDTO.getPanels()))
+                        .build();
                     games.add(g3);
                 }
                 return games;

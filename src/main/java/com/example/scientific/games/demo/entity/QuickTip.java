@@ -3,7 +3,9 @@ package com.example.scientific.games.demo.entity;
 
 import com.example.scientific.games.demo.entity.marker.Game;
 import java.util.SortedSet;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
 
 
 /**
@@ -11,12 +13,14 @@ import lombok.Data;
  *
  * @author tamas.kiss
  */
-@Data
+@Getter
+@ToString
+@Builder
 public class QuickTip implements Game {
 
     /**
      * Represent the random numbers
      */
-    private SortedSet<Integer> numbers;
+    private final SortedSet<Integer> numbers;
 
 }
